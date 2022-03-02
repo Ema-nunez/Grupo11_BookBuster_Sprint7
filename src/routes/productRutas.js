@@ -3,6 +3,7 @@ const router = express.Router();
 const productController = require('../controllers/productController')
 const upload = require('../middleware/middlemulter')
 const jerarquiaMiddleware = require('../middleware/jerarquiaMiddleware')
+const validationProductEdit = require('../middleware/validatorEditProductMiddleware');
 
 
 router.get('/cart', productController.cart);
@@ -17,7 +18,7 @@ router.post('/storeProduct', upload.single("portada"), productController.store);
 
 router.get('/edit/:id', jerarquiaMiddleware ,productController.edit)
 
-router.put('/edit/:id',upload.single("image"), productController.update)
+router.put('/edit/:id',upload.single("image"),validationProductEdit, productController.update)
 
 router.post("/delete/:id", productController.eliminar)
 module.exports = router;
