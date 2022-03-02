@@ -107,9 +107,7 @@ const userController = {
       },
     }
         )
-        return res.redirect("/users/profile");
-    
-    
+        return res.redirect("/users/profile");  
   },
 };
 
