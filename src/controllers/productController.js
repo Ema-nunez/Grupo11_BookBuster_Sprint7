@@ -1,7 +1,7 @@
-
 let db = require('../database/models');
 const { Op } = require("sequelize");
 const imageController = require('../controllers/imageController')
+const { validationResult } = require("express-validator");
 const productController = {
     cart : (req,res)=>{
         res.render('products/cart');
@@ -76,6 +76,7 @@ const productController = {
     },
     
     edit : (req,res)=>{
+
         let productId = req.params.id;
         let promProducts = db.Product.findByPk(productId,{
             include : ['category','state','detail','editorial','size','images']
@@ -94,6 +95,14 @@ const productController = {
     },
 
     update:(req,res)=>{
+
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            return res.render("products/editarProducto", {
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+            });
+        }
 
         let productId = req.params.id;
         let image = db.Image.findOne({
