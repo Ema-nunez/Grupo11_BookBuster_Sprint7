@@ -1,10 +1,10 @@
 /*VARIABLES*/
 :root {
   --BgColor-body: #f4f6f6;
-  --BgColor-header: #ecebe4;
+  --BgColor-header: #ffffff;
   --BgColor-menuHamburguesa-carrito: #daddd8;
   --Color-menuHamburguesa-carrito: #3a3846;
-  --BgColor-btn: #18a999;
+  --BgColor-btn: #000000;
   --Color-btn: #f4f6f6;
   --BgColor-footer: linear-gradient(180deg, #18a999 12.55%, #ffffff 80%);
   --footer-h2: #170312;
@@ -79,19 +79,21 @@ section.top-header {
 
 .estilos-login {
   padding: 10px;
-  background-color: white;
-  box-shadow: inset 0 0 0 0 red;
+  background-color: #96A13A;
+  box-shadow: inset 0 0 0 0 #048ba8;
   transition: ease-out 0.5s;
+  color: white;
 }
 
 .estilos-login:hover {
-  box-shadow: inset 300px 0 0 0 red;
+  box-shadow: inset 300px 0 0 0 #048ba8;
   color: white;
 }
 
 .estilos-register {
   padding: 10px;
-  border: 1px solid black;
+  border: 2px solid #048ba8;
+  color: #048ba8;
   transition: ease-out 0.4s;
   position: relative;
   z-index: 1;
@@ -108,7 +110,7 @@ section.top-header {
   right: 50%;
   bottom: 0;
   content: "";
-  background-color: red;
+  background-color: #048ba8;
 }
 
 .estilos-register:hover:before {
@@ -155,19 +157,21 @@ section.top-header {
   color: #170312;
   /*???*/
   outline: none;
-  border: 1px solid #18a999;
+  /* border: 1px solid #18a999; */
+  border: none;
   border-radius: 10px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 .btn {
-  margin-left: 2px;
+  /* margin-left: 2px; */
   background: var(--BgColor-btn);
   position: relative;
-  border-radius: 10px;
+  border-radius: 50px;
   padding: 7px 11px;
   font-size: 20px;
   height: 40px;
   color: var(--Color-btn);
-  width: 10%;
+  /* width: 10%; */
 }
 
 .nameuser a {
@@ -901,7 +905,7 @@ section.copyright p {
   letter-spacing: 1px;
 }
 button {
-  width: 50%;
+  /* width: 50%; */
   height: auto;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1419,13 +1423,13 @@ input[type="number"]::-webkit-outer-spin-button {
     justify-content: space-between;
   }
 
-  .logeo-menu li a {
+  /* .logeo-menu li a {
     color: #170312;
-  }
+  } */
 
   .logeo-menu li a:hover,
   a:active {
-    color: #4d08fa;
+    color: #ffffff;
   }
 
   /* Estilos del login para tablet */
