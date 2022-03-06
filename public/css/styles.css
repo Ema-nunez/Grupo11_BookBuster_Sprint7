@@ -6,9 +6,9 @@
   --Color-menuHamburguesa-carrito: #3a3846;
   --BgColor-btn: #000000;
   --Color-btn: #f4f6f6;
-  --BgColor-footer: linear-gradient(180deg, #18a999 12.55%, #ffffff 80%);
-  --footer-h2: #170312;
-  --botones-redesSociales: #18a999;
+  --BgColor-footer: black;
+  --footer-h2: #ffffff;
+  --botones-redesSociales: #96a13a;
 }
 
 * {
@@ -549,10 +549,10 @@ footer .container h2:before {
   height: 2px;
   bottom: -5px;
   left: 0px;
-  background: #ed1c24;
+  background: #96a13a;
 }
 footer p {
-  color: #18a999;
+  color: #ffffff;
 }
 .sci {
   margin-top: 25px;
@@ -573,8 +573,8 @@ footer p {
   text-decoration: none;
   border-radius: 10px;
   transition: 0.5s;
-  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.7))
-    drop-shadow(-3px -3px 5px rgba(255, 255, 255, 0.86));
+  /* filter: drop-shadow(0px 3px 6px rgb(255, 255, 255))
+    drop-shadow(-3px -3px 5px rgba(0, 0, 0, 0.86)); */
   font-size: 20px;
 }
 
@@ -592,7 +592,7 @@ footer p {
 }
 .Mas-Info ul li a {
   text-decoration: none;
-  color: #18a999;
+  color: #ffffff;
   margin-bottom: 10px;
   display: inline-block;
 }
@@ -605,14 +605,15 @@ footer p {
 }
 .medios-pago article i {
   font-size: 35px;
-  color: #ed1c24;
+  color: white;
   display: inline-block;
   margin-right: 5px;
 }
 section.copyright {
-  background: white;
+  background: black;
   padding: 5px;
   width: 100%;
+  color: white;
 }
 section.copyright p {
   text-align: center;
