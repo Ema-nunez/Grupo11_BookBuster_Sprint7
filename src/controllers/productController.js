@@ -94,34 +94,11 @@ const productController = {
         })
     },
 
-    update: async(req,res)=>{
+    update: (req,res) =>{
 
-//         const resultValidation = validationResult(req);
-// //hacemos peticion de todos los datos de cada tabla relacionada al producto
-//         let product = await db.Product.findByPk(req.params.id);
-//         let allEditorials = await db.Editorial.findAll();
-//         let allCategories = await db.Category.findAll();
-//         let allDetails = await db.Detail.findAll();
-//         let allSizes = await db.Size.findAll();
-//         let allStates = await db.State.findAll();
-        
-// //si se detecta algun error tras haberse validado rendereizamos de nuevo la vista y le pasaremos todos los datos
-//         if (resultValidation.errors.length > 0) {
-//             return res.render("./products/editarProducto", {
-//                 product,
-//                 allEditorials,
-//                 allCategories,
-//                 allDetails,
-//                 allSizes,
-//                 allStates,
-//                 productID : req.params.id,
-//                 errors: resultValidation.mapped(),
-//                 oldData: req.body,
-//             });
-//         }
-
-        try { 
-
+        const resultValidation = validationResult(req);
+        if(resultValidation.isEmpty()){
+            
             let productId = req.params.id;
             let image = db.Image.findOne({
                 where : {
@@ -154,14 +131,25 @@ const productController = {
                     return res.redirect(`/products/detailProduct/${req.params.id}`)
                 })
             })
+        }else{
+            
+            let id = req.params.id;
+            let product = db.Product.findByPk(id);
+            let allCategories = db.Category.findAll();
+            let allEditorials = db.Editorial.findAll();
+            let allDetails = db.Detail.findAll();
+            let allSizes = db.Size.findAll();
+            let allStates = db.State.findAll();
 
-        }catch(error){
-            res.send(error)
-        }
-
-        
-        
- 
+            Promise.all([product,allCategories,allEditorials,allDetails,allSizes,allStates])
+            .then(([product,allCategories,allEditorials,allDetails,allSizes,allStates])=>{
+                res.render('products/editProduct',{product,allCategories,allEditorials,
+                    allDetails,allSizes,allStates,
+                    errors : resultValidation.mapped(),
+                    oldData : req.body,
+                })
+            })
+        }   
     },
 
     eliminar: function(req,res){

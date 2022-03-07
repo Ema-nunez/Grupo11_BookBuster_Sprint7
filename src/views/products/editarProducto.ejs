@@ -12,19 +12,25 @@
 
             <p>Titulo del producto</p>
             <input type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : product.name %> " id="nameEP">
+            
+            <div id="name-error">
             <% if (locals.errors && errors.nombre) { %>
                 <p><%= errors.nombre.msg %> </p>
             <% } %>
-            <div id="name-error">
-
             </div>
 
             <p>Precio</p>
             <input type="text" name="precio"value="<%= product.price %> ">
 
             <p>Descripcion</p>
-            <textarea name="descripcion" id="descriptionEP" cols="30" rows="5" ><%=product.description %></textarea>
-            <div id="description-error"></div>
+            <textarea name="descripcion" id="descriptionEP" cols="30" rows="5" ><%=locals.oldData ? oldData.descripcion : product.description %></textarea>
+            <div id="description-error">
+                <% if (locals.errors && errors.descripcion) { %>
+                    <p><%= errors.descripcion.msg %></p>
+                <% } %>
+            </div>
+
+
             <p>Stock Minimo</p>
             <input type="text" name="stockMin" value="<%= product.stock_min %> ">
 
