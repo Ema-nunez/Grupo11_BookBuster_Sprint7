@@ -17,12 +17,13 @@
             <input type="text" class ="form__input" name="name" 
             value="<%= locals.oldData ? oldData.name : null%>" id="name" placeholder="Ej:Jhonatan">
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+          </div> 
+            <p class="formulario__input-error">Solo puedes ingresar de 4 a 16 dígitos y unicamente puede contener letras.</p>
                   <% if (locals.errors && errors.name) { %>
               <div class="mensajesError">
                   <%= errors.name.msg %> 
               </div>
-            <% } %> 
-          </div>  
+            <% } %>  
         </div>
 
         <!-- Formulario-Apellido -->
@@ -32,12 +33,12 @@
           <div class="form__grupo-input">
             <input type="text" class ="form__input" name="lastName" value ="<%= locals.oldData ? oldData.lastName : null %>" placeholder="Ej: Fulguera"/> 
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+          </div>  
             <% if (locals.errors && errors.lastName) { %>
               <div class="mensajesError">
                   <%= errors.lastName.msg %> 
               </div>
             <% } %>
-          </div>  
         </div>
 
         <!-- Formulario-Telefono -->
@@ -47,22 +48,23 @@
           <div class="form__grupo-input">
             <input type="text" class ="form__input" name="telefono" id="telefono" placeholder="34344856"/> 
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
-          </div>  
+          </div>
+          <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>  
         </div>
 
             <!-- Formulario E-MAIL-->
 
-            <div class="form-grupo" id="grupo__usuario">
+            <div class="form-grupo" id="grupo__correo">
               <label for="email" class="formulario__label">CORREO</label>
               <div class="form__grupo-input">
                 <input type="email" class ="form__input" name="email" value="<%= locals.oldData ? oldData.email : null%> " placeholder="E-mail"/>
-                  <% if (locals.errors && errors.email) { %>
+                <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>  
+              </div>   
+                <% if (locals.errors && errors.email) { %>
                       <div class="mensajesError">
                   <%= errors.email.msg %> 
                       </div>
                   <% } %>
-                <i class="form__validacion-estado fa-solid fa-circle-xmark"></i> 
-              </div>  
             </div>
             
             <!-- Formulario-password -->
@@ -73,12 +75,12 @@
             <input type="password" class ="form__input" name="password" 
             value="<%= locals.oldData ? oldData.name : null%>" id="password">
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+          </div> 
             <% if (locals.errors && errors.password) { %>
               <div class="mensajesError">
                   <%= errors.password.msg %> 
               </div>
             <% } %>
-          </div>  
         </div>
 
         <!-- Formulario-Repetir password -->
@@ -89,12 +91,12 @@
             <input type="password" class ="form__input" name="passwordConfirm" 
             value="<%= locals.oldData ? oldData.name : null%>" id="passwordConfirm">
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+          </div> 
             <% if (locals.errors && errors.passwordConfirm) { %>
               <div class="mensajesError">
                   <%= errors.passwordConfirm.msg %> 
               </div>
-            <% } %>
-          </div>  
+            <% } %> 
         </div>
 
         <!-- Formulario-Subir imagen-->

@@ -846,7 +846,12 @@ section.copyright p {
 .main-register {
   width: 100%;
 }
-.mensajesError {
+.mensajesError{
+  margin: 10px 0;
+  color: red;
+}
+.mensajesError-activo {
+  display: block;
   margin: 10px 0;
   color: red;
 }
@@ -1620,7 +1625,7 @@ p.parrafo-register{
 .form__checkbox{
   margin-right: 10px;
 }
-.form__mensaje-exito,.form__mensaje,.form__grupo-btn-enviar{
+.form__mensaje-exito, .form__mensaje, .form__grupo-btn-enviar{
   grid-column: span 2;
 }
 .form__mensaje{
@@ -1654,6 +1659,16 @@ p.parrafo-register{
 .form__btn:hover{
   box-shadow: 3px 0 30px rgba(163,163,163,1);
 }
+
+.formulario__input-error{
+  display:none;
+}
+.formulario__input-error-activo{
+  display:block;
+  margin-top: 10px;
+  color:red;
+}
+
 .form__grupo-correcto .form__validacion-estado {
   color:#1ed12d;
   opacity: 1;
