@@ -33,7 +33,8 @@
           <div class="form__grupo-input">
             <input type="text" class ="form__input" name="lastName" value ="<%= locals.oldData ? oldData.lastName : null %>" placeholder="Ej: Fulguera"/> 
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
-          </div>  
+          </div> 
+          <p class="formulario__input-error">Solo puedes ingresar de 4 a 16 dígitos y unicamente puede contener letras.</p> 
             <% if (locals.errors && errors.lastName) { %>
               <div class="mensajesError">
                   <%= errors.lastName.msg %> 
@@ -49,7 +50,7 @@
             <input type="text" class ="form__input" name="telefono" id="telefono" placeholder="34344856"/> 
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
           </div>
-          <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>  
+          <p class="formulario__input-error">El telefono solo puede contener numeros.</p>  
         </div>
 
             <!-- Formulario E-MAIL-->
@@ -59,7 +60,8 @@
               <div class="form__grupo-input">
                 <input type="email" class ="form__input" name="email" value="<%= locals.oldData ? oldData.email : null%> " placeholder="E-mail"/>
                 <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>  
-              </div>   
+              </div>
+              <p class="formulario__input-error">El formato del Email debe cumplir el patrón: nombre@dominio.xxx.</p>   
                 <% if (locals.errors && errors.email) { %>
                       <div class="mensajesError">
                   <%= errors.email.msg %> 
@@ -75,7 +77,8 @@
             <input type="password" class ="form__input" name="password" 
             value="<%= locals.oldData ? oldData.name : null%>" id="password">
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
-          </div> 
+          </div>
+          <p class="formulario__input-error">Nueva contraseña no puede estar vacío.</p> 
             <% if (locals.errors && errors.password) { %>
               <div class="mensajesError">
                   <%= errors.password.msg %> 

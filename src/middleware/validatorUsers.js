@@ -6,7 +6,8 @@ const validacion = [
 	body('lastName').notEmpty().withMessage("Usamos tu Apellido para identificarte mas rapido.").bail()
     .isLength({min: 4}).withMessage('Debes escribir un nombre de usuario con más de 2 caracteres'),
     body('email').notEmpty().withMessage("Tienes que escribir tu correo."),
-    body('password').notEmpty().isLength({min: 8}).withMessage('Debes escribir una contraseña con más de 8 caracteres'),
+    body('password').notEmpty().withMessage('Debes escribir una contraseña con más de 8 caracteres').bail()
+	.isLength({min: 8}),
 		body('passwordConfirm')
 		.trim()
 		.notEmpty().withMessage('Debe confirmar su contraseña').bail()
