@@ -5,19 +5,26 @@
     <%- include('../partials/header')  %> 
 
     <main class="agregar-container">
-
-        <form action="/products/edit/<%=product.id %>?_method=PUT" method="POST" class="formAdd" enctype="multipart/form-data">
+        
+            <form action="/products/edit/<%=product.id %>?_method=PUT" method="POST" class="formAdd" enctype="multipart/form-data" id="form-productEdit">
+        
             <h2>Editar Producto  <b><%= product.name %></b></h2>
 
             <p>Titulo del producto</p>
-            <input type="text" name="nombre" value="<%= product.name %> ">
-            
+            <input type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : product.name %> " id="nameEP">
+            <% if (locals.errors && errors.nombre) { %>
+                <p><%= errors.nombre.msg %> </p>
+            <% } %>
+            <div id="name-error">
+
+            </div>
+
             <p>Precio</p>
             <input type="text" name="precio"value="<%= product.price %> ">
 
             <p>Descripcion</p>
-            <textarea name="descripcion" id="" cols="30" rows="5" ><%=product.description %></textarea>
-
+            <textarea name="descripcion" id="descriptionEP" cols="30" rows="5" ><%=product.description %></textarea>
+            <div id="description-error"></div>
             <p>Stock Minimo</p>
             <input type="text" name="stockMin" value="<%= product.stock_min %> ">
 
@@ -66,7 +73,8 @@
 
             <p>Imagen de portada</p>
                 
-            <input type="file" name="image">
+            <input type="file" name="image" id="imageEP">
+            <div id="image-error"></div>
 
             <div class="botones-agregar">
                 <input type="submit" value="Actualizar">
@@ -77,5 +85,6 @@
     </main>
 
     <%- include('../partials/footer')  %> 
+    <script src="/js/validation-form-editProduct.js"></script>
 </body>
 </html>

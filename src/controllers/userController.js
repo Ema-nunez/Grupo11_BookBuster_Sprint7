@@ -20,7 +20,7 @@ const userController = {
           req.body.password,
           userToLogin.password
         );
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa", passwordOk);
+        
         if (passwordOk) {
           delete userToLogin.password;
           req.session.userLoged = userToLogin;

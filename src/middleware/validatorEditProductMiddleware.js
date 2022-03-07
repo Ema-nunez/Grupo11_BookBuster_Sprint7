@@ -1,7 +1,7 @@
 const {body} = require('express-validator');
 const path = require('path');
 const validation = [
-    body('nombre').notEmpty().isLength({min:5}),
+    body('nombre').notEmpty().isLength({min:5}).withMessage('La longitud del nombre del producto es menor a la requerida'),
     body('descripcion').isLength({min:20}),
     body('image').custom((value, { req }) => {
 		let file = req.file;

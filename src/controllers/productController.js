@@ -94,50 +94,70 @@ const productController = {
         })
     },
 
-    update:(req,res)=>{
+    update: async(req,res)=>{
 
-        const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
-            return res.render("products/editarProducto", {
-                errors: resultValidation.mapped(),
-                oldData: req.body,
-            });
-        }
+//         const resultValidation = validationResult(req);
+// //hacemos peticion de todos los datos de cada tabla relacionada al producto
+//         let product = await db.Product.findByPk(req.params.id);
+//         let allEditorials = await db.Editorial.findAll();
+//         let allCategories = await db.Category.findAll();
+//         let allDetails = await db.Detail.findAll();
+//         let allSizes = await db.Size.findAll();
+//         let allStates = await db.State.findAll();
+        
+// //si se detecta algun error tras haberse validado rendereizamos de nuevo la vista y le pasaremos todos los datos
+//         if (resultValidation.errors.length > 0) {
+//             return res.render("./products/editarProducto", {
+//                 product,
+//                 allEditorials,
+//                 allCategories,
+//                 allDetails,
+//                 allSizes,
+//                 allStates,
+//                 productID : req.params.id,
+//                 errors: resultValidation.mapped(),
+//                 oldData: req.body,
+//             });
+//         }
 
-        let productId = req.params.id;
-        let image = db.Image.findOne({
-            where : {
-                    products_id : productId
-            }
-        }).then(()=>{
+        try { 
 
-            if(req.file == undefined){
-                imageController.edit(productId,image.name)
-            }else{
-                imageController.edit(productId,req.file.filename)
-            }
-
-            db.Product.update({
-                name: req.body.nombre,
-                price: req.body.precio,            
-                description: req.body.descripcion,
-                stock_min : req.body.stockMin,
-                stock_max : req.body.stockMax,
-                states_id: req.body.estado,
-                categories_id: req.body.categoria,
-                sizes_id : req.body.formato,
-                details_id : req.body.detail,
-                editorials_id : req.body.editorial,
-            },{
+            let productId = req.params.id;
+            let image = db.Image.findOne({
                 where : {
-                    id : productId
+                        products_id : productId
                 }
             }).then(()=>{
-                return res.redirect(`/products/detailProduct/${req.params.id}`)
+
+                if(req.file == undefined){
+                    imageController.edit(productId,image.name)
+                }else{
+                    imageController.edit(productId,req.file.filename)
+                }
+
+                db.Product.update({
+                    name: req.body.nombre,
+                    price: req.body.precio,            
+                    description: req.body.descripcion,
+                    stock_min : req.body.stockMin,
+                    stock_max : req.body.stockMax,
+                    states_id: req.body.estado,
+                    categories_id: req.body.categoria,
+                    sizes_id : req.body.formato,
+                    details_id : req.body.detail,
+                    editorials_id : req.body.editorial,
+                },{
+                    where : {
+                        id : productId
+                    }
+                }).then(()=>{
+                    return res.redirect(`/products/detailProduct/${req.params.id}`)
+                })
             })
-        })
 
-
+        }catch(error){
+            res.send(error)
+        }
 
         
         
