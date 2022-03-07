@@ -5,50 +5,100 @@
     <%- include('../partials/header') %>
     <main class="main-register">
 
+      <h2 class="titulo-registro" >CREAR CUENTA</h2>
+      <p class="parrafo-register">Comprá más rápido y llevá el control de tus pedidos,<b>¡en un solo lugar!</b></p>
 
-
-      <form class="form-register" action="/users/register"  method= "POST" enctype="multipart/form-data">
-        <h2>Registro</h2>
-        <div class="infouser">
-          <div class="formulario">
-            <!-- <label for="name">Nombre</label> -->
-            <input type="text" name="name" 
-            value="<%= locals.oldData ? oldData.name : null%>" placeholder="Nombre">
-            <% if (locals.errors && errors.name) { %>
+      <form class="form-register" id="formulario" action="/users/register"  method= "POST" enctype="multipart/form-data">
+        
+        <!-- Formulario-Nombre -->
+        <div class="form-grupo" id="grupo__usuario">
+          <label for="name" class="formulario__label">Nombre</label>
+          <div class="form__grupo-input">
+            <input type="text" class ="form__input" name="name" 
+            value="<%= locals.oldData ? oldData.name : null%>" id="name" placeholder="Ej:Jhonatan">
+            <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+                  <% if (locals.errors && errors.name) { %>
               <div class="mensajesError">
                   <%= errors.name.msg %> 
               </div>
-            <% } %>
-            <!-- <label for="email">E-mail</label> -->
-            <input type="email" name="email" value="<%= locals.oldData ? oldData.email : null%> " placeholder="E-mail"/>
-            <% if (locals.errors && errors.email) { %>
+            <% } %> 
+          </div>  
+        </div>
+
+        <!-- Formulario-Apellido -->
+
+        <div class="form-grupo" id="grupo__lastName">
+          <label for="lastName" class="formulario__label">Apellido</label>
+          <div class="form__grupo-input">
+            <input type="text" class ="form__input" name="lastName" value ="<%= locals.oldData ? oldData.lastName : null %>" placeholder="Ej: Fulguera"/> 
+            <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+            <% if (locals.errors && errors.lastName) { %>
               <div class="mensajesError">
-                  <%= errors.email.msg %> 
+                  <%= errors.lastName.msg %> 
               </div>
             <% } %>
+          </div>  
+        </div>
 
-            <!-- <label for="password">Contraseña</label> -->
-            <input type="password" name="password" placeholder="Contraseña"/>
+        <!-- Formulario-Telefono -->
+
+        <div class="form-grupo" id="grupo__telefono">
+          <label for="telefono" class="formulario__label">Telefono</label>
+          <div class="form__grupo-input">
+            <input type="text" class ="form__input" name="telefono" id="telefono" placeholder="34344856"/> 
+            <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+          </div>  
+        </div>
+
+            <!-- Formulario E-MAIL-->
+
+            <div class="form-grupo" id="grupo__usuario">
+              <label for="email" class="formulario__label">CORREO</label>
+              <div class="form__grupo-input">
+                <input type="email" class ="form__input" name="email" value="<%= locals.oldData ? oldData.email : null%> " placeholder="E-mail"/>
+                  <% if (locals.errors && errors.email) { %>
+                      <div class="mensajesError">
+                  <%= errors.email.msg %> 
+                      </div>
+                  <% } %>
+                <i class="form__validacion-estado fa-solid fa-circle-xmark"></i> 
+              </div>  
+            </div>
+            
+            <!-- Formulario-password -->
+
+        <div class="form-grupo" id="grupo__password">
+          <label for="password" class="formulario__label">Contraseña</label>
+          <div class="form__grupo-input">
+            <input type="password" class ="form__input" name="password" 
+            value="<%= locals.oldData ? oldData.name : null%>" id="password">
+            <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
             <% if (locals.errors && errors.password) { %>
               <div class="mensajesError">
                   <%= errors.password.msg %> 
               </div>
             <% } %>
-
-          </div>
-
-          <div class="formulario">
-            <!-- <label for="lastName">Apellido (opcional)</label> -->
-            <input type="text" name="lastName" value ="<%= locals.oldData ? oldData.lastName : null %>" placeholder="Apellido"/>
-
-
-            
-          </div>
+          </div>  
         </div>
-        <br>
 
-      
-        <br>
+        <!-- Formulario-Repetir password -->
+
+        <div class="form-grupo" id="grupo__passwordConfirm">
+          <label for="passwordConfirm" class="formulario__label">Confirmar Contraseña</label>
+          <div class="form__grupo-input">
+            <input type="password" class ="form__input" name="passwordConfirm" 
+            value="<%= locals.oldData ? oldData.name : null%>" id="passwordConfirm">
+            <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
+            <% if (locals.errors && errors.passwordConfirm) { %>
+              <div class="mensajesError">
+                  <%= errors.passwordConfirm.msg %> 
+              </div>
+            <% } %>
+          </div>  
+        </div>
+
+        <!-- Formulario-Subir imagen-->
+
         <div>
           <label for="">Subir Imagen</label>
           <input type="file" name="image">
@@ -58,10 +108,27 @@
             </div>
           <% } %>
         </div>
-        <input type="submit" value="Registrarme" style="cursor: pointer;">
+
+        <!-- Formulario-Terminos y condiciones -->
+        <div class="form__grupo" id="grupo__terminos">
+          <label class="form__label">
+            <input type="checkbox" class="form__checkbox" id="terminos" name="terminos">
+            Acepta los Terminos y Condiciones. 
+          </label>
+        </div>
+
+        <div class="form__mensaje" id="form__mensaje">
+          <p><i class="fas fa-exclamation-triangle"></i><b>ERROR!</b> No sea pendejo!, Complete el Formulario</p>
+        </div>
+        
+        <div class="form__grupo form__grupo-btn-enviar" >
+          <button type="submit" class="form__btn">Registrarme</button>
+          <p class="form__mensaje-exito" id="form__mensaje-exito"></p>
+        </div>
         
       </form>
     </main>
+    <script src="/js/formRegister.js"></script>
 
     <%- include('../partials/footer') %>
   </body>
