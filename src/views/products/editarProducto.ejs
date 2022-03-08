@@ -11,31 +11,31 @@
             <h2>Editar Producto  <b><%= product.name %></b></h2>
 
             <p>Titulo del producto</p>
-            <input type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : product.name %> " id="nameEP">
+            <input type="text" name="nombre" value="<%= locals.oldData ? oldData.nombre : product.name %>" id="nameEP">
             
             <div id="name-error">
             <% if (locals.errors && errors.nombre) { %>
-                <p><%= errors.nombre.msg %> </p>
+                <p class="mensajesError"><%= errors.nombre.msg %> </p>
             <% } %>
             </div>
 
             <p>Precio</p>
-            <input type="text" name="precio"value="<%= product.price %> ">
+            <input type="text" name="precio"value="<%= product.price %>">
 
             <p>Descripcion</p>
             <textarea name="descripcion" id="descriptionEP" cols="30" rows="5" ><%=locals.oldData ? oldData.descripcion : product.description %></textarea>
             <div id="description-error">
                 <% if (locals.errors && errors.descripcion) { %>
-                    <p><%= errors.descripcion.msg %></p>
+                    <p class="mensajesError"><%= errors.descripcion.msg %></p>
                 <% } %>
             </div>
 
 
             <p>Stock Minimo</p>
-            <input type="text" name="stockMin" value="<%= product.stock_min %> ">
+            <input type="text" name="stockMin" value="<%= product.stock_min %>">
 
             <p>Stock Maximo</p>
-            <input type="text" name="stockMax" value="<%= product.stock_max %> ">
+            <input type="text" name="stockMax" value="<%= product.stock_max %>">
 
             <p>Categoria</p>
             <select name="categoria">
@@ -80,8 +80,12 @@
             <p>Imagen de portada</p>
                 
             <input type="file" name="image" id="imageEP">
-            <div id="image-error"></div>
-
+            <div id="image-error">
+            <% if (locals.errors && errors.image) { %>
+                    <p class="mensajesError"><%= errors.image.msg%></p> 
+                <% } %>
+            </div>
+            
             <div class="botones-agregar">
                 <input type="submit" value="Actualizar">
             </div>
@@ -91,6 +95,6 @@
     </main>
 
     <%- include('../partials/footer')  %> 
-    <script src="/js/validation-form-editProduct.js"></script>
+    <!-- <script src="/js/validation-form-editProduct.js"></script> -->
 </body>
 </html>

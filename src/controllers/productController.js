@@ -51,6 +51,8 @@ const productController = {
     },
 
     store:(req,res)=>{
+
+        
         db.Product.create({
             
             name:req.body.nombre,
@@ -95,23 +97,29 @@ const productController = {
     },
 
     update: (req,res) =>{
-
+        //obtengo el resultado de las validaciones
         const resultValidation = validationResult(req);
+        //inicialmente no habra ningun error en las validaciones puesto que no se edito nada y la informacion ya viene correcta
+
         if(resultValidation.isEmpty()){
-            
+            //asi que simplmente tomare todos los datos que vienen y hare el update si los campos estan correctos
             let productId = req.params.id;
+            //busco la imagen que este vinculada al producto a editar para usarlo luego
             let image = db.Image.findOne({
                 where : {
                         products_id : productId
                 }
             }).then(()=>{
-
+                //verifico si se eligio una nueva imagen o no
                 if(req.file == undefined){
+                    //en el caso de que no se haya elegido una nueva imagen, se usara la que ya estaba vinculada
                     imageController.edit(productId,image.name)
                 }else{
+                    //en caso de elegir una nueva imagen se tomara esa y se hara el update de la misma, antes de que se haga
+                    //el update de los campos del body
                     imageController.edit(productId,req.file.filename)
                 }
-
+                //update del body
                 db.Product.update({
                     name: req.body.nombre,
                     price: req.body.precio,            
@@ -128,11 +136,12 @@ const productController = {
                         id : productId
                     }
                 }).then(()=>{
+                    
                     return res.redirect(`/products/detailProduct/${req.params.id}`)
                 })
             })
         }else{
-            
+            //en caso de que hayan errores en las validaciones requerimos todos los datos del producto 
             let id = req.params.id;
             let product = db.Product.findByPk(id);
             let allCategories = db.Category.findAll();
@@ -140,10 +149,12 @@ const productController = {
             let allDetails = db.Detail.findAll();
             let allSizes = db.Size.findAll();
             let allStates = db.State.findAll();
-
+            //procedemos a cargarlas junto al renderizado de la vista de editar, ademas tambien pasamos los errores
+            //y los datos previos para que estos no se pierdan 
             Promise.all([product,allCategories,allEditorials,allDetails,allSizes,allStates])
             .then(([product,allCategories,allEditorials,allDetails,allSizes,allStates])=>{
-                res.render('products/editProduct',{product,allCategories,allEditorials,
+                
+                res.render('products/editarProducto',{product,allCategories,allEditorials,
                     allDetails,allSizes,allStates,
                     errors : resultValidation.mapped(),
                     oldData : req.body,

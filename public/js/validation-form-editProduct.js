@@ -1,5 +1,5 @@
 window.addEventListener('load',function(){
-    this.alert('hpña');
+    
     const form = document.querySelector('#form-productEdit');
     const name = document.querySelector('#nameEP');
     const description = document.querySelector('#descriptionEP');
@@ -28,6 +28,7 @@ window.addEventListener('load',function(){
     writeMsg = (...arrToWrite)=>{
         arrToWrite.forEach(elementWrite=>{
             document.getElementById(elementWrite.id).innerText = elementWrite.msg;
+            document.getElementById(elementWrite.id).classList.add('mensajesError')
         })
     }
 
