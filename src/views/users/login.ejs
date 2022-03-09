@@ -22,11 +22,21 @@
 
           <p>or</p>
           <form class="formulario" action="/users/login" method="POST">
-            <input type="text" placeholder="Usuario" name="email"/>
-            <% if (locals.errors && errors.email) { %>
-              <div> <%= errors.email.msg %> </div>
-            <% } %>
-            <input type="password" placeholder="Contraseña" name="password">
+              <input type="text" placeholder="Usuario" name="email" id="email"  onkeyup="validationEmail()"/>
+              <% if (locals.errors && errors.email) { %>
+                <div> <%= errors.email.msg %> </div>
+              <% } %>
+            <div id="mensaje-validacion-email">
+              <i class="icono-cruz fa-solid fa-circle-xmark"></i>
+              <i class="icono-check fa-solid fa-circle-check"></i>
+              <p id="text_validation_email" class="text-estilos"></p>
+            </div>
+            <input type="password" placeholder="Contraseña" id="password" name="password" onkeyup="validationContraseña()"/>
+            <div id="mensaje-validacion-contraseña">
+              <i class="icono-cruz fa-solid fa-circle-xmark"></i>
+              <i class="icono-check fa-solid fa-circle-check"></i>
+              <p id="text_validation_password" class="text-estilos"></p>
+            </div>
             <div class="recordarme">
               <input type="checkbox" name="recordarme">Recordarme
             </div>
@@ -41,5 +51,6 @@
       </div>
     </main>
     <%- include('../partials/footer') %>
+    <script src="/js/validationLogin.js"></script>
   </body>
 </html>

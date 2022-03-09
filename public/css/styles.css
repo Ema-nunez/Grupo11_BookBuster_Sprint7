@@ -844,6 +844,20 @@ section.copyright p {
   cursor: pointer;
   text-decoration: none;
 }
+
+.icono-cruz{
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+}
+
+.icono-check{
+  font-size: 1.2rem;
+  color: #1ed12d;
+  display: none;
+}
+
+
 /* Terminan los estilos del login */
 
 
