@@ -131,6 +131,7 @@ section.top-header {
 }
 
 .carrito a i {
+  display: inline-block;
   font-size: 25px;
   color: var(--Color-menuHamburguesa-carrito);
   background-color: var(--BgColor-menuHamburguesa-carrito);
@@ -147,10 +148,10 @@ section.top-header {
   justify-content: center;
 }
 .form-search {
-  width: 80%;
+  width: 90%;
 }
 .barra-busqueda input {
-  width: 80%;
+  width: 75%;
   height: 40px;
   padding: 0px 20px;
   font-size: 1rem;
@@ -166,12 +167,13 @@ section.top-header {
   /* margin-left: 2px; */
   background: var(--BgColor-btn);
   position: relative;
-  border-radius: 50px;
+  border-radius: 10px;
   padding: 7px 11px;
   font-size: 20px;
   height: 40px;
   color: var(--Color-btn);
-  /* width: 10%; */
+  margin-left: 20px;
+  
 }
 
 .nameuser a {
@@ -457,8 +459,8 @@ main section.Productos-relacionados article:hover img {
   opacity: 0.5;
 }
 /* .index-img img {
-  height: 350px;
-  width: 240px;
+  height: 200px;
+  width: 140px;
 } */
 main section.Productos-relacionados article:after {
   position: absolute;
@@ -954,7 +956,7 @@ section.copyright p {
   }
   .form__btn{
     height: 45px;
-    line-height: 45px;
+    line-height: 33px;
     width: 30%;
     color:#fff;
     background-color: #0093E9;
@@ -1600,7 +1602,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .opciones-menu {
-    width: 60%;
+    width: 50%;
     justify-content: space-between;
   }
   .opciones-menu li a {
@@ -1611,7 +1613,7 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #4d08fa;
   }
   .logeo-menu {
-    width: 30%;
+    /* width: 30%; */
     justify-content: space-between;
   }
 
@@ -1716,10 +1718,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   div.detalle-prod {
     width: 60%;
-  }
-
-  .logeo-menu {
-    width: 25%;
   }
 
   /*Footer responsive*/
@@ -1833,6 +1831,17 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   /* Fin de los estilos de pc de agregarProducto */
+
+  /* Estilos del buscador */
+      .barra-busqueda input{
+        width: 90%;
+      }
+
+      .barra-busqueda .btn{
+        width:auto;
+        margin-left:25px;
+      }
+  /* fin de los estilos del buscador */
 }
 
 @media (min-width: 1200px) {
@@ -1870,5 +1879,10 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   article div.main-product p {
     font-size: 25px;
+  }
+
+  .barra-busqueda .btn{
+    width:auto;
+    margin-left:3%;
   }
 }

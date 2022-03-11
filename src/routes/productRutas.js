@@ -7,18 +7,14 @@ const validationProductEdit = require('../middleware/validatorEditProductMiddlew
 
 
 router.get('/cart', productController.cart);
-
 router.get('/detailProduct/:id', productController.detail);
-
 router.get('/search', productController.search);
+router.get('/getProducts/:categoria',productController.getProducts);
 
+//CRUD de Products
 router.get('/createProduct', jerarquiaMiddleware, productController.create);
-
 router.post('/storeProduct', upload.single("portada"), productController.store);
-
 router.get('/edit/:id', jerarquiaMiddleware ,productController.edit)
-
 router.put('/edit/:id',upload.single("image"),validationProductEdit,  productController.update)
-
 router.post("/delete/:id", productController.eliminar)
 module.exports = router;

@@ -2,9 +2,9 @@
   <section class="top-header">
     <nav class="menu-oculto">
       <ul class="opciones-menu">
-        <li><a href="#">Manga</a></li>
-        <li><a href="#">Comics</a></li>
-        <li><a href="#">Libros</a></li>
+        <li><a href="/products/getProducts/mangas">Mangas</a></li>
+        <li><a href="/products/getProducts/comics">Comics</a></li>
+        <li><a href="/products/getProducts/libros">Libros</a></li>
         <li><a href="#">Merchandising</a></li>
       </ul>
       <% if (locals.isLogged) { %>
@@ -34,6 +34,7 @@
       <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
     </div>
   </section>
+  
   <div class="barra-busqueda">
     <form action="/products/search" method="get" class="form-search">
       <input

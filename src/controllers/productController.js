@@ -33,6 +33,35 @@ const productController = {
 
     },
 
+    getProducts : (req,res)=>{
+        let categoria = req.params.categoria;
+        switch (categoria) {
+            case "mangas":
+                    categoria = 1;
+                break;
+            case "comics" :
+                categoria = 2;
+                break;
+            case "libros" :
+                categoria = 3;
+                break;
+
+            default:
+                break;
+        }
+        
+        db.Product.findAll({
+            include : [
+                {association : "images"}
+            ],
+            where : {
+                categories_id : categoria
+            }
+        }).then(products=>{
+            res.render('products/Categoria',{products})
+        })
+    },
+
     create : (req,res)=>{
         let promEditorials = db.Editorial.findAll();
         let promCategories = db.Category.findAll();
