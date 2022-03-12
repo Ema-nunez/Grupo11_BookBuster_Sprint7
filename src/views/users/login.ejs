@@ -22,21 +22,21 @@
 
           <p>or</p>
           <form class="formulario" action="/users/login" method="POST">
+            <div id="mensaje-validacion-email">
               <input type="text" placeholder="Usuario" name="email" id="email"  onkeyup="validationEmail()"/>
               <% if (locals.errors && errors.email) { %>
                 <div> <%= errors.email.msg %> </div>
               <% } %>
-            <div id="mensaje-validacion-email">
               <i class="icono-cruz fa-solid fa-circle-xmark"></i>
               <i class="icono-check fa-solid fa-circle-check"></i>
-              <p id="text_validation_email" class="text-estilos"></p>
             </div>
-            <input type="password" placeholder="Contraseña" id="password" name="password" onkeyup="validationContraseña()"/>
+            <p id="text_validation_email" class="text-estilos"></p>
             <div id="mensaje-validacion-contraseña">
+              <input type="password" placeholder="Contraseña" id="password" name="password" onkeyup="validationContraseña()"/>
               <i class="icono-cruz fa-solid fa-circle-xmark"></i>
               <i class="icono-check fa-solid fa-circle-check"></i>
-              <p id="text_validation_password" class="text-estilos"></p>
             </div>
+            <p id="text_validation_password" class="text-estilos"></p>
             <div class="recordarme">
               <input type="checkbox" name="recordarme">Recordarme
             </div>

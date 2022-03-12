@@ -847,17 +847,37 @@ section.copyright p {
   text-decoration: none;
 }
 
+#mensaje-validacion-email {
+  position: relative;
+}
+
+#mensaje-validacion-contraseña {
+  position: relative;
+}
+
+
 .icono-cruz{
+  position: absolute;
+  float: right;
+  top: 27px;
+  right: 27px;
+  z-index: 100;
   font-size: 1.2rem;
   color: red;
   display: none;
 }
 
 .icono-check{
+  position: absolute;
+  float: right;
+  top: 27px;
+  right: 27px;
+  z-index: 100;
   font-size: 1.2rem;
   color: #1ed12d;
   display: none;
 }
+
 
 
 /* Terminan los estilos del login */
