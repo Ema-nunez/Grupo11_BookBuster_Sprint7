@@ -78,7 +78,7 @@
             value="<%= locals.oldData ? oldData.name : null%>" id="password">
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
           </div>
-          <p class="formulario__input-error">Nueva contraseña no puede estar vacío.</p> 
+          <p class="formulario__input-error">Nueva contraseña no puede estar vacío y debe tener 8 caracteres, almenos una letra mayuscula.</p> 
             <% if (locals.errors && errors.password) { %>
               <div class="mensajesError">
                   <%= errors.password.msg %> 

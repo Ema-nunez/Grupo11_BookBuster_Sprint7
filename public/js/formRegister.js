@@ -126,5 +126,4 @@ const validarPassword = ()=>{
 		document.getElementById('form__mensaje').classList.add('form__mensaje-activo');
 	}
     })
-})
-
+});
