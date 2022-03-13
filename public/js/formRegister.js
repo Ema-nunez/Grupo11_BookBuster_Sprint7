@@ -1,14 +1,26 @@
 const expresiones = {
-	//usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	usuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
+    password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+    img: ['JPG', 'jpg', 'png', 'gif', 'jpeg', 'JPEG', 'PNG', 'GIF']
+}
+
+const campos = {
+	usuario: false,
+	nombre: false,
+	password: false,
+	correo: false,
+	telefono: false,
+    img: false
 }
 
 window.addEventListener('load', function() {
-    const formulario = document.getElementById('formulario');
+    //const formulario = document.getElementById('formulario');
+    const button = document.getElementById('form__btn');
     const inputs = document.querySelectorAll('#formulario input');
+
+    console.log(inputs);
     
     const validarFormulario = function(e){
         switch (e.target.name){
@@ -32,6 +44,20 @@ window.addEventListener('load', function() {
                 validarPassword();
                 breack;
             case "image":
+                const validarFILE = ()=>{
+                    if(e.target.value){
+                    var file = e.target.value;
+                    console.log(file);
+                    let fileExtension = file.split(".").pop();
+                    if (!expresiones.image.includes(fileExtension)){
+                        document.querySelector(`#grupo_File .formulario__input-error`).classList.add("formulario__input-error-activo");
+                        campos['img'] = false;
+                    }else{
+                        document.querySelector(`#grupo_File .formulario__input-error`).classList.remove("formulario__input-error-activo");
+                        campos['img'] = true;
+                    }
+                }
+            }
                 breack;
         }
     }
@@ -43,13 +69,15 @@ const validarEspacio = (expressiones, input, campo)=>{
         document.querySelector(`#grupo__${campo} i`).classList.remove("fa-times-circle");
 //                    document.querySelector("#grupo__usuario .mensajesError").classList.remove("mensajesError-activo");
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove("formulario__input-error-activo");
+        campos[campo] = true;
     }else{
         document.getElementById(`grupo__${campo}`).classList.add("form__grupo-incorrecto");
-        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+        document.getElementById(`grupo__${campo}`).classList.remove('form__grupo-correcto');
         document.querySelector(`#grupo__${campo} i`).classList.add("fa-times-circle");
         document.querySelector(`#grupo__${campo} i`).classList.remove("fa-check-circle");
 //                    document.querySelector("#grupo__usuario .mensajesError").classList.add("mensajesError-activo");
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add("formulario__input-error-activo");
+        campos[campo] = false;
     }
 }
 const validarPassword = ()=>{
@@ -58,18 +86,20 @@ const validarPassword = ()=>{
     
     if(inputPassword1.value !== inputPassword2.value){
         document.getElementById(`grupo__passwordConfirm`).classList.add("form__grupo-incorrecto");
-        document.getElementById(`grupo__passwordConfirm`).classList.remove('formulario__grupo-correcto');
+        document.getElementById(`grupo__passwordConfirm`).classList.remove('form__grupo-correcto');
         document.querySelector(`#grupo__passwordConfirm i`).classList.add("fa-times-circle");
         document.querySelector(`#grupo__passwordConfirm i`).classList.remove("fa-check-circle");
 //                    document.querySelector("#grupo__usuario .mensajesError").classList.add("mensajesError-activo");
-        document.querySelector(`#grupo__passwordConfirm .formulario__input-error`).classList.add("formulario__input-error-activo");
+        document.querySelector(`#grupo__passwordConfirm .form__grupo-input`).classList.add("form__grupo-input-error-activo");
+        campos['password'] = false;
     }else{
         document.getElementById(`grupo__passwordConfirm`).classList.remove("form__grupo-incorrecto");
-        document.getElementById(`grupo__passwordConfirm`).classList.add('formulario__grupo-correcto');
+        document.getElementById(`grupo__passwordConfirm`).classList.add('form__grupo-correcto');
         document.querySelector(`#grupo__passwordConfirm i`).classList.add("fa-check-circle");
         document.querySelector(`#grupo__passwordConfirm i`).classList.remove("fa-times-circle");
 //                    document.querySelector("#grupo__usuario .mensajesError").classList.add("mensajesError-activo");
-        document.querySelector(`#grupo__passwordConfirm .formulario__input-error`).classList.remove("formulario__input-error-activo");
+        document.querySelector(`#grupo__passwordConfirm .form__grupo-input`).classList.remove("form__grupo-input-error-activo");
+        campos['password'] = true;
     }
 }
 
@@ -78,8 +108,24 @@ const validarPassword = ()=>{
         input.addEventListener('blur', validarFormulario);
     });
 
-    formulario.addEventListener('submit', (e) => {
-      //  e.preventDefault()
+    button.addEventListener('click', (e) => {
+        e.preventDefault()
+    const terminos = document.getElementById('terminos');
+	if(campos.usuario && campos.password && campos.correo && campos.telefono  && terminos.checked ){
+        formulario.reset();
+
+		document.getElementById('form__mensaje-exito').classList.add('form__mensaje-exito-activo');
+		setTimeout(() => {
+			document.getElementById('form__mensaje-exito').classList.remove('form__mensaje-exito-activo');
+		}, 5000);
+
+		document.querySelectorAll('.form__grupo-correcto').forEach((icono) => {
+			icono.classList.remove('form__grupo-correcto');
+		});
+        form.submit();
+	} else {
+		document.getElementById('form__mensaje').classList.add('form__mensaje-activo');
+	}
     })
 })
 
