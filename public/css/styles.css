@@ -149,6 +149,7 @@ section.top-header {
 }
 .form-search {
   width: 90%;
+  text-align: center;
 }
 .barra-busqueda input {
   width: 75%;
@@ -734,11 +735,11 @@ section.copyright p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 6px 5px 11px 2px rgb(0 0 0 / 25%);
+  /* box-shadow: 6px 5px 11px 2px rgb(0 0 0 / 25%);
   border-radius: 10px 130px;
   padding: 2rem 0.5rem;
-  background-color: aquamarine;
-}
+  /* background-color: aquamarine; */
+} 
 
 .image-container {
   padding: 2%;
@@ -772,7 +773,8 @@ section.copyright p {
   height: 3.75rem;
   font-size: 1.2rem;
   border-radius: 5px;
-  border: 1px solid #674baf;
+  border: 1px solid #ffffff;
+  background-color: white;
 }
 
 .social-login-element img {
@@ -810,6 +812,7 @@ section.copyright p {
 
 .formulario input {
   padding: 20px;
+  margin: 10px;
   border: none;
   border-radius: 5px;
   font-weight: 600;
@@ -818,7 +821,7 @@ section.copyright p {
 }
 
 .formulario input:hover {
-  border: 2px solid #674baf;
+  border: 3px solid #048ba8;
 }
 .formulario input:focus {
   outline: none;
@@ -831,7 +834,9 @@ section.copyright p {
   text-transform: uppercase;
   color: white;
   border-radius: 5px;
-  background-color: #674baf;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  font-weight: bold;
   cursor: pointer;
   padding: 7px;
   box-sizing: border-box;
@@ -859,7 +864,7 @@ section.copyright p {
 .icono-cruz{
   position: absolute;
   float: right;
-  top: 27px;
+  top: 35%;
   right: 27px;
   z-index: 100;
   font-size: 1.2rem;
@@ -870,7 +875,7 @@ section.copyright p {
 .icono-check{
   position: absolute;
   float: right;
-  top: 27px;
+  top: 35%;
   right: 27px;
   z-index: 100;
   font-size: 1.2rem;

@@ -3,23 +3,14 @@
     <%- include('../partials/head') %>
     <body class="body-login">
     <%- include('../partials/header') %>
-
-    <!-- <div class="historial-menu">
-        <ul class="breadcrumb">
-            <li><a href="index.html"></a>Home</li>
-            <li><a href="#"></a>Manga</li>
-            <li><a href="#"></a>Spy x Family serie</li>
-            <li id="principal"><a href="productDetail.html"></a>Spy x Family 01</li>
-        </ul>
-    </div> -->
     <br><br>
     <section class="detallesDelProd">
         <div class="spyFma">
             <% for( let i = 0; i < product.images.length; i++ ) { %>
                 <img src="/images/products/<%= product.images[i].name%> " alt="<%= product.name %> ">
             <% } %>
-           
         </div>
+
         <div class="detalle-prod">
             <div class="titulo">
                 <h1><%= product.name %> </h1>
@@ -31,8 +22,7 @@
         <div class="estado">
             <h4 data-text="Estado: <%= product.state.type %> ...">Estado: <%= product.state.type %> ...</h4>
             <ul>
-            <p>Genero:</p>
-            <li> </li>
+            <!-- <li> </li> -->
             </ul>
         </div>
         <% if (locals.userLoged) { %>
@@ -44,6 +34,7 @@
                     <input type="submit" class="btn2" value="Agregar carrito">
                     <i class="fas fa-shopping-cart"></i>
                 </div>
+                <br>
             <% } %>
         <% if (locals.userLoged) { %>
             <% if (locals.userLoged.roles_id ==  1) { %>
