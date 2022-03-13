@@ -33,7 +33,7 @@
     function validationEmail() {
         if (email.value == "") {
             textEmail.innerHTML = "El campo esta vacío"
-            inputEmail.style.border =  "5px solid red"
+            inputEmail.style.border =  "3px solid red"
             textEmail.style.color = "red"
             iconoCruzEmail.style.display = "inline"
             iconoCheckEmail.style.display = "none"
@@ -43,16 +43,16 @@
         else if(!email.value.match(patternEmail)) {
             textEmail.innerHTML = "Ingrese un email correcto"
             textEmail.style.color = "red"
-            inputEmail.style.border =  "5px solid red"
+            inputEmail.style.border =  "3px solid red"
             iconoCruzEmail.style.display = "inline"
             iconoCheckEmail.style.display = "none"
             return true;
             }
 
         if(email.value.match(patternEmail)){
-            textEmail.innerHTML = "Tu email es valido"
+            textEmail.innerHTML = ""
             textEmail.style.color = "#1ed12d"
-            inputEmail.style.border =  "5px solid #1ed12d"
+            inputEmail.style.border =  ""
             iconoCruzEmail.style.display = "none"
             iconoCheckEmail.style.display = "inline"
             return false;
@@ -63,7 +63,7 @@
         if (contraseña.value == "") {
             textContraseña.innerHTML = "El campo esta vacío"
             textContraseña.style.color = "red"
-            inputContraseña.style.border =  "5px solid red"
+            inputContraseña.style.border =  "3px solid red"
             iconoCruzContraseña.style.display = "inline"
             iconoCheckContraseña.style.display = "none"
             return true;
@@ -72,16 +72,16 @@
         else if (contraseña.value.length < 8) {
             textContraseña.innerHTML = "El campo tiene que tener minimo 8 caracteres"
             textContraseña.style.color = "red"
-            inputContraseña.style.border =  "5px solid red"
+            inputContraseña.style.border =  "3px solid red"
             iconoCruzContraseña.style.display = "inline"
             iconoCheckContraseña.style.display = "none"
             return true;
         }
 
         if(contraseña.value.length >= 8){
-            textContraseña.innerHTML = "El campo esta completo"
+            textContraseña.innerHTML = ""
             textContraseña.style.color = "#1ed12d"
-            inputContraseña.style.border =  "5px solid #1ed12d"
+            inputContraseña.style.border =  ""
             iconoCruzContraseña.style.display = "none"
             iconoCheckContraseña.style.display = "inline"
             return false;
