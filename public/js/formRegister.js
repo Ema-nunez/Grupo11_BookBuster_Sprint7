@@ -43,8 +43,7 @@ window.addEventListener('load', function() {
             case "passwordConfirm":
                 validarPassword();
                 breack;
-            case "image":
-                const validarFILE = ()=>{
+            case "image": ()=>{
                     if(e.target.value){
                     var file = e.target.value;
                     console.log(file);
