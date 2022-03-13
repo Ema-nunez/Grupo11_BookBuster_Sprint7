@@ -1,4 +1,5 @@
 <header>
+
   <section class="top-header">
     <nav class="menu-oculto">
       <ul class="opciones-menu">
@@ -9,7 +10,7 @@
       </ul>
       <% if (locals.isLogged) { %>
       <p class="nameuser">
-        <a href="/users/profile"><%= locals.userLoged.first_name %></a>
+        <a href="/users/profile"><%= locals.userLoged.first_name %>aaaa</a>
       </p>
       <a class="session-out" href="/users/logout"
         ><i class="fas fa-sign-out-alt"></i
@@ -34,6 +35,33 @@
       <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
     </div>
   </section>
+
+    <div class="burgerMenuHide">
+    
+    <ul>
+      <li><a href="/">Inicio</a><i class="fas fa-times" id="closeBurgerMenu"></i></li>
+      <p>Productos</p>
+      <li><a href="/products/getProducts/mangas">Mangas</a></li>
+      <li><a href="/products/getProducts/comics">Comics</a></li>
+      <li><a href="/products/getProducts/libros">Libros</a></li>
+      <p>User</p>
+      <% if (locals.isLogged) { %>
+        <li><a href="/users/profile">Mi Perfil</a></li>
+        <li><a href="/users/logout">Cerrar Sesion</a></li>
+        
+        <% if (locals.userLoged.roles_id==1) { %>
+          <li> <a href="/products/createProduct">Crear Producto</a></li>
+        <% } %>
+      <% }else{ %>
+        <li><a href="/users/login">Iniciar Sesion</a></li>
+        <li><a href="/users/register">Registrarse</a></li>
+            
+      <% } %>
+    </ul>
+  </div>
+  
+  
+  
   
   <div class="barra-busqueda">
     <form action="/products/search" method="get" class="form-search">
@@ -48,4 +76,6 @@
       </button>
     </form>
   </div>
+
+  <script src="/js/functions/functionHeader.js"></script>
 </header>

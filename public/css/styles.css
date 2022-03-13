@@ -130,6 +130,48 @@ section.top-header {
   border-radius: 10px;
 }
 
+.burgerMenuHide{
+  height:100vh;
+  width: 50%;
+  background-color:#333332;
+  position:absolute;
+  top:0%;
+  left:0%;
+  display:none;
+  z-index: 2;
+  color: rgb(148, 209, 172);
+}
+.burgerMenuHide ul{
+  padding:10%;
+  list-style: none;
+}
+.burgerMenuHide ul li,.burgerMenuHide ul p {
+  padding:1%;
+  margin-left: 4%;
+}
+
+.burgerMenuHide ul li{
+  border-bottom:1px solid rgba(255, 255, 255, 0.1);
+}
+
+.burgerMenuHide ul li a{
+  color:#fff;
+  text-decoration: none;
+}
+
+#closeBurgerMenu{
+  position: absolute;
+  right: 10%;
+}
+
+.bodyDark{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: #000;
+}
+
 .carrito a i {
   display: inline-block;
   font-size: 25px;
