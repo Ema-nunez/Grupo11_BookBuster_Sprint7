@@ -1020,6 +1020,15 @@ section.copyright p {
   .form__grupo-incorrecto .form__input{
     border: 3px solid red;
   }
+
+  .form__mensaje-exito {
+    font-size: 14px;
+    color: #119200;
+    display: none;
+  }
+  .form__mensaje-exito-activo{
+    display:block;
+  }
   
     /* Fin de los estilos del register para PC */
 

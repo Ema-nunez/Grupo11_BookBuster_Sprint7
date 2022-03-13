@@ -78,7 +78,7 @@
             value="<%= locals.oldData ? oldData.name : null%>" id="password">
             <i class="form__validacion-estado fa-solid fa-circle-xmark"></i>
           </div>
-          <p class="formulario__input-error">Nueva contraseña no puede estar vacío.</p> 
+          <p class="formulario__input-error">Nueva contraseña no puede estar vacío y debe tener 8 caracteres, almenos una letra mayuscula.</p> 
             <% if (locals.errors && errors.password) { %>
               <div class="mensajesError">
                   <%= errors.password.msg %> 
@@ -104,9 +104,10 @@
 
         <!-- Formulario-Subir imagen-->
 
-        <div>
+        <div id="grupo_File">
           <label for="">Subir Imagen</label>
-          <input type="file" name="image">
+          <input type="file" name="image" class="avatar">
+          <p  class="formulario__input-error">Las extenciones de archivo permitidas son: JPG, jpg, png, gif, jpeg, JPEG, PNG, GIF</p>
           <% if (locals.errors && errors.image) { %>
             <div class="mensajesError">
               <%= errors.image.msg %>
@@ -123,12 +124,12 @@
         </div>
 
         <div class="form__mensaje" id="form__mensaje">
-          <p><i class="fas fa-exclamation-triangle"></i><b>ERROR!</b> No sea pendejo!, Complete el Formulario</p>
+          <p><i class="fas fa-exclamation-triangle"></i><b>ERROR!</b>Complete el Formulario !</p>
         </div>
         
         <div class="form__grupo form__grupo-btn-enviar" >
-          <button type="submit" class="form__btn">Registrarme</button>
-          <p class="form__mensaje-exito" id="form__mensaje-exito"></p>
+          <button type="submit" class="form__btn" id="form__btn">Registrarme</button>
+          <p class="form__mensaje-exito" id="form__mensaje-exito">Formulario enviado exitosamente!</p>
         </div>
         
       </form>
