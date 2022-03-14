@@ -152,6 +152,7 @@ section.top-header {
 
 .burgerMenuHide ul li{
   border-bottom:1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 5px;
 }
 
 .burgerMenuHide ul li a{
@@ -218,11 +219,48 @@ section.top-header {
   margin-left: 20px;
   
 }
+.perfilFull{
+  cursor: pointer;
+}
+.perfil{
+ display:flex;
+ align-items: center;
+ text-align: end;
+}
 
-.nameuser a {
-  color: #6a33f5;
-  font-size: 1.1em;
-  text-decoration: none;
+.perfil img{
+
+  width: 40px;
+  height: 40px;
+  border-radius: 60%;
+  height:auto;
+  margin-right: 5%;
+}
+
+.perfil i{
+  margin-left: 13%;
+  margin-right: 5%;
+}
+
+.perfilOpciones{
+  display : none;
+  background-color: #a9a8b8;
+  position: absolute;
+  z-index: 3;
+  right:5.8%;
+  padding:0.8%;
+  top: 80%;
+}
+
+.perfilOpciones li{
+  padding:2px;
+  list-style: none;
+}
+
+.perfilOpciones a{
+  color:rgba(34, 32, 32, 0.9);
+  text-decoration:none;
+  border-bottom: 1px solid #d6d6d6;
 }
 
 .session-out {
@@ -358,21 +396,23 @@ div.agregarCarrito input:hover {
   background-color: #2980b9;
 }
 div.boton-delate {
+  
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
+  display: inline-block;
 }
 a.action-button-edit {
   background-color: #00acee;
   text-decoration: none;
   color: white;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border-radius: 5px;
   padding: 10px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 button.action-button-delete {
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background-color: red;
   color: white;
   border-radius: 5px;
@@ -380,6 +420,9 @@ button.action-button-delete {
   border: solid red 1px;
   cursor: pointer;
   width: 100%;
+  font-family: "Bebas Neue", cursive;
+  height: 45px;
+  margin: 0px;
 }
 
 section.detallesDelProd h3 {

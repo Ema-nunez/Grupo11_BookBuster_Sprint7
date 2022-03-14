@@ -26,4 +26,21 @@ window.addEventListener('load', function(){
 
         
     })
+
+    let perfil = document.querySelector(".perfil");
+    let perfilMenu = document.querySelector(".perfilOpciones");
+    let perfilFull = document.querySelector(".perfilFull");
+    perfil.addEventListener("click",function(){
+        
+        perfilMenu.style.display = "block";
+        
+        perfilMenu.addEventListener("mouseleave",function(){
+            perfilMenu.style.display = "none";
+        })
+    })
+    perfilFull.addEventListener('mouseleave',function(){
+        perfilMenu.style.display = "none";
+    })
+    
+
 })

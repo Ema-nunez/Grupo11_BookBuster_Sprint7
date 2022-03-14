@@ -9,12 +9,24 @@
         <li><a href="#">Merchandising</a></li>
       </ul>
       <% if (locals.isLogged) { %>
-      <p class="nameuser">
-        <a href="/users/profile"><%= locals.userLoged.first_name %>aaaa</a>
-      </p>
-      <a class="session-out" href="/users/logout"
+      <div class="perfilFull">
+        <div class="perfil">        
+        <img src="/images/avatars/<%= locals.userLoged.avatar %>" alt="">
+        <p><%= locals.userLoged.first_name %></p>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <div class="perfilOpciones">
+        <ul>
+          <li><a href="/users/profile">Mi perfil</a></li>
+          <li><a href="/products/createProduct">Crear Producto</a></li>
+          <li><a href="/users/logout">Cerrar Sesion</a></li>
+        </ul>
+      </div>
+      </div>
+      
+      <!-- <a class="session-out" href="/users/logout"
         ><i class="fas fa-sign-out-alt"></i
-      ></a>
+      ></a> -->
       <% }else{ %>
       <ul class="logeo-menu">
         <li>
