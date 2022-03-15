@@ -1343,17 +1343,17 @@ margin-left: 2.5%;
 }
 
 .iconos-envios-pago-descuentos {
-  font-size: 52px;
+  font-size: 2rem;
   background-color: white;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 50%;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
 }
 
 .text-tarjetas {
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: black;
 }
 
