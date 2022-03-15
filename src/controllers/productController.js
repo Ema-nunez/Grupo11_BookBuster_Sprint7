@@ -28,7 +28,7 @@ const productController = {
             },
             include : ['images' ]
         }).then(products => {
-            res.render('products/index',{products})
+            res.render('products/searchProducts',{products})
         })
 
     },
