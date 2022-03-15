@@ -101,52 +101,35 @@
         <h2>PRODUCTOS RELACIONADOS</h2>
         <section class="Productos-relacionados contenedor-grid">
             
-            <article>
-                <img src="/images/products/spyxfamily02.jpg" alt="spyxfamily02">
+            <% for( let i =0; i < products.length; i++ ) { %>
+                <article>
+                <a href="/products/detailProduct/<%= products[i].id %> ">
+                    <% for( let j = 0; j < products[i].images.length; j++ ) { %>
+                        <img src="/images/products/<%= products[i].images[j].name %> " alt="portada<%= products[i].name %> ">
+                    <% } %>
+                   
+                </a>
                 <div class="main-product">
                     
-                    <h3>Spy x Family 02 <i class="fas fa-book"></i></h3>
-                    <p>$550</p>
-                    <form action="/views/home.html" method="POST">
-                    <input type="submit" class="btn3" value="Agregar al carrito">
+                    <h3><%= products[i].name%></i></h3>
+                    <p>$<%= products[i].price %> </p>
+                    <% if (locals.userLoged) { %>
+                        <% if (locals.userLoged.roles_id ==  1) { %>
+                            
+                        <% } %>
+                    <% }else{ %>
+                            <div class="agregarCarrito">
+                                <input type="submit" class="btn2" value="Agregar carrito">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        <% } %>
+                       
                     </form>
                 </div>
             </article>
+            <% } %>
+            
 
-            <article>
-                <img src="/images/products/spyxfamily03.jpg" alt="spyxfamily02">
-                <div class="main-product">
-                    <h3>Spy x Family 03 <i class="fas fa-book"></i></h3>
-                    <p>$550</p>
-                    <form action="/views/home.html" method="POST">
-                    <input type="submit" class="btn3" value="Agregar al carrito">
-                    </form>
-                </div>
-            </article>
-
-            <article>
-                <img src="/images/products/spyxfamily06.jpg" alt="spyxfamily02">
-                <div class="main-product">
-                    
-                    <h3>Spy x Family 06 <i class="fas fa-book"> </i></h3>
-                    <p>$550</p>
-                    <form action="/views/home.html" method="POST">
-                    <input type="submit" class="btn3" value="Agregar al carrito">
-                    </form>
-                </div>
-            </article>
-
-            <article>
-                <img src="/images/products/spyxfamily07.jpg" alt="spyxfamily02">
-                <div class="main-product">
-                    
-                    <h3>Spy x Family 07 <i class="fas fa-book"></i></h3>
-                    <p>$550</p>
-                    <form action="/views/home.html" method="POST">
-                    <input type="submit" class="btn3" value="Agregar al carrito">
-                    </form>
-                </div>
-            </article>
         </section>
     </main>
 

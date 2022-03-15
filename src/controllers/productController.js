@@ -15,7 +15,20 @@ const productController = {
         })
         .then(product => {
             
-           return res.render('products/productDetail',{product})
+            db.Product.findAll({
+            
+                where: {
+                    name: { [Op.like] : '%' + product.name.slice(0,(product.name.length)-5) + '%' },
+                    id : {
+                        [Op.ne]: product.id,
+                    }  
+                },
+                include : ['images'],
+                limit: 4
+                
+            }).then(products => {
+                return res.render('products/productDetail',{product, products})
+            })
         })
     },
 
