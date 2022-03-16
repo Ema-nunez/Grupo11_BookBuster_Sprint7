@@ -3,7 +3,7 @@ const expresiones = {
     password:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-    img: ['JPG', 'jpg', 'png', 'gif', 'jpeg', 'JPEG', 'PNG', 'GIF']
+    img: /(.jpg|.jpeg|.png|.gif)$/i
 }
 
 const campos = {
@@ -26,6 +26,7 @@ window.addEventListener('load', function() {
         switch (e.target.name){
             case "name":
                 validarEspacio(expresiones.usuario, e.target, "usuario");
+                console.log("validare el name")
                 breack;
             case "lastName":
                 validarEspacio(expresiones.usuario, e.target, "lastName");
@@ -42,21 +43,6 @@ window.addEventListener('load', function() {
                 breack;
             case "passwordConfirm":
                 validarPassword();
-                breack;
-            case "image": ()=>{
-                    if(e.target.value){
-                    var file = e.target.value;
-                    console.log(file);
-                    let fileExtension = file.split(".").pop();
-                    if (!expresiones.image.includes(fileExtension)){
-                        document.querySelector(`#grupo_File .formulario__input-error`).classList.add("formulario__input-error-activo");
-                        campos['img'] = false;
-                    }else{
-                        document.querySelector(`#grupo_File .formulario__input-error`).classList.remove("formulario__input-error-activo");
-                        campos['img'] = true;
-                    }
-                }
-            }
                 breack;
         }
     }
@@ -101,6 +87,25 @@ const validarPassword = ()=>{
         campos['password'] = true;
     }
 }
+
+
+
+    
+let image = document.querySelector('.avatar')
+image.addEventListener('change',()=>{
+
+    if (!expresiones.img.exec(image.value)) {
+        document.querySelector(`#grupo_File .formulario__input-error`).classList.add("formulario__input-error-activo");
+        campos.img = false;
+        image.value = "";
+    }else{
+        document.querySelector(`#grupo_File .formulario__input-error`).classList.remove("formulario__input-error-activo");
+        campos.img = true;
+    }
+})
+    
+                
+
 
     inputs.forEach((input) => {
         input.addEventListener('keyup', validarFormulario);
