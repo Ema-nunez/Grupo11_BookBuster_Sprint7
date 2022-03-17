@@ -1,4 +1,4 @@
-# Grupo11_Bookbuster_Sprint6
+# Grupo11_Bookbuster_Sprint7
 
 Usuario administrador: 
 Email/usuario: admin@gmail.com
