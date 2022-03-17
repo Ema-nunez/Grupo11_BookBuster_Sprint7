@@ -119,15 +119,25 @@ const productController = {
         res.redirect("/");
       });
     } else {
-      res.render("products/agregarProducto", {
+      Promise.all([
         allCategories,
         allEditorials,
         allDetails,
         allSizes,
         allStates,
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
+      ]).then(
+        ([allCategories, allEditorials, allDetails, allSizes, allStates]) => {
+          res.render("products/agregarProducto", {
+            allCategories,
+            allEditorials,
+            allDetails,
+            allSizes,
+            allStates,
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+          });
+        }
+      );
     }
   },
 
