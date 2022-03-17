@@ -2,11 +2,11 @@
 
 Usuario administrador: 
 Email/usuario: admin@gmail.com
-Password : admin1234
+Password : Admin123
 
 Usuario comun: 
 Email/usuario: usuario@gmail.com
-Password : usuario123
+Password : Usuario123
 
 En caso de por algun motivo los mails no funcionen, se pueden registrar(el rol por defecto siempre sera usuario)
 
