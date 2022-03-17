@@ -15,11 +15,15 @@ router.get("/getProducts/:categoria", productController.getProducts);
 router.get(
   "/createProduct",
   jerarquiaMiddleware,
-  upload.single("image"),
-  validationNewProduct,
+
   productController.create
 );
-router.post("/storeProduct", upload.single("portada"), productController.store);
+router.post(
+  "/storeProduct",
+  upload.single("portada"),
+  validationNewProduct,
+  productController.store
+);
 router.get("/edit/:id", jerarquiaMiddleware, productController.edit);
 router.put(
   "/edit/:id",
