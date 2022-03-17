@@ -21,14 +21,14 @@
                     <h3><%= products[i].name%></h3>
                     <p>$<%= products[i].price %> </p>
                     <% if (locals.userLoged) { %>
-                        <% if (locals.userLoged.roles_id ==  1) { %>
-                            
-                        <% } %>
-                    <% }else{ %>
+                        <% if (locals.userLoged.roles_id == 2) { %>
                             <div class="agregarCarrito">
                                 <input type="submit" class="btn2" value="Agregar carrito">
                                 <i class="fas fa-shopping-cart"></i>
                             </div>
+                        <% } %>
+                    <% }else{ %>
+                            
                         <% } %>
                         <% if (locals.userLoged) { %>
                             <% if (locals.userLoged.roles_id ==  1) { %>

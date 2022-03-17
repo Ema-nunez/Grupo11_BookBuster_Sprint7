@@ -51,7 +51,7 @@ window.addEventListener('load',function(){
         if(!description.value){
             writeMsg({id, msg : 'La descripcion no puede estar vacia'});
             return true
-        }else if(description.value.length < 5){
+        }else if(description.value.length < 20){
             writeMsg({id, msg: 'La descripcion no puede tener menos de 20 caracteres'})
             return true
         }

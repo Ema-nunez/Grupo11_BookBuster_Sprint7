@@ -17,6 +17,7 @@ const campos = {
 
 window.addEventListener('load', function() {
     //const formulario = document.getElementById('formulario');
+    const form = document.querySelector('.form-register');
     const button = document.getElementById('form__btn');
     const inputs = document.querySelectorAll('#formulario input');
 
@@ -115,8 +116,8 @@ image.addEventListener('change',()=>{
     button.addEventListener('click', (e) => {
         e.preventDefault()
     const terminos = document.getElementById('terminos');
-	if(campos.usuario && campos.password && campos.correo && campos.telefono  && terminos.checked ){
-        formulario.reset();
+	if(campos.usuario && campos.password && campos.correo && campos.telefono  &&campos.img && terminos.checked ){
+        // formulario.reset();
 
 		document.getElementById('form__mensaje-exito').classList.add('form__mensaje-exito-activo');
 		setTimeout(() => {

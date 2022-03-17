@@ -38,9 +38,7 @@ window.addEventListener('load', function(){
             perfilMenu.style.display = "none";
         })
     })
-    perfilFull.addEventListener('mouseleave',function(){
-        perfilMenu.style.display = "none";
-    })
+    
     
 
 })

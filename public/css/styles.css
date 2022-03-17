@@ -1993,7 +1993,7 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 30px;
   }
   main section.Productos-relacionados article {
-    width: 250px;
+    width: 20%;
   }
   article div.main-product h3 {
     font-size: 27px;
