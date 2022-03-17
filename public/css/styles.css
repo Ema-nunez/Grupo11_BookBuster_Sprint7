@@ -1707,9 +1707,9 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 310px;
   }
 
-  article img {
+  /* article img {
     max-width: 310px;
-  }
+  } */
   /*----FIN----*/
 
   .logo {
