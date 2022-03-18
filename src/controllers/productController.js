@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 const imageController = require("../controllers/imageController");
 const { validationResult } = require("express-validator");
 const productController = {
+
   cart: (req, res) => {
     res.render("products/cart");
   },
@@ -32,7 +33,6 @@ const productController = {
 
   search: (req, res) => {
     let search = req.query.searchbar;
-
     db.Product.findAll({
       where: {
         name: { [Op.like]: "%" + search + "%" },
@@ -55,7 +55,6 @@ const productController = {
       case "libros":
         categoria = 3;
         break;
-
       default:
         break;
     }
@@ -78,26 +77,19 @@ const productController = {
     let promStates = db.State.findAll();
 
     Promise.all([
-      promCategories,
-      promEditorials,
-      promDetails,
-      promSizes,
-      promStates,
+      promCategories,promEditorials,promDetails,promSizes,promStates,
     ]).then(
       ([allCategories, allEditorials, allDetails, allSizes, allStates]) => {
         // res.json(allCategories)
         res.render("products/agregarProducto", {
-          allCategories,
-          allEditorials,
-          allDetails,
-          allSizes,
-          allStates,
+          allCategories,allEditorials,allDetails,allSizes,allStates,
         });
       }
     );
   },
 
   store: (req, res) => {
+
     const resultValidation = validationResult(req);
     if (resultValidation.isEmpty()) {
       db.Product.create({
@@ -119,20 +111,13 @@ const productController = {
         res.redirect("/");
       });
     } else {
+
       Promise.all([
-        allCategories,
-        allEditorials,
-        allDetails,
-        allSizes,
-        allStates,
+        allCategories,allEditorials,allDetails,allSizes,allStates,
       ]).then(
         ([allCategories, allEditorials, allDetails, allSizes, allStates]) => {
           res.render("products/agregarProducto", {
-            allCategories,
-            allEditorials,
-            allDetails,
-            allSizes,
-            allStates,
+            allCategories,allEditorials,allDetails,allSizes,allStates,
             errors: resultValidation.mapped(),
             oldData: req.body,
           });
@@ -154,28 +139,11 @@ const productController = {
     let promStates = db.State.findAll();
 
     Promise.all([
-      promProducts,
-      promCategories,
-      promEditorials,
-      promDetails,
-      promSizes,
-      promStates,
+      promProducts,promCategories,promEditorials,promDetails,promSizes,promStates,
     ]).then(
-      ([
-        product,
-        allCategories,
-        allEditorials,
-        allDetails,
-        allSizes,
-        allStates,
-      ]) => {
+      ([product,allCategories,allEditorials,allDetails,allSizes,allStates]) => {
         return res.render("products/editarProducto", {
-          product,
-          allCategories,
-          allEditorials,
-          allDetails,
-          allSizes,
-          allStates,
+          product,allCategories,allEditorials,allDetails,allSizes,allStates,
         });
       }
     );
@@ -239,28 +207,11 @@ const productController = {
       //procedemos a cargarlas junto al renderizado de la vista de editar, ademas tambien pasamos los errores
       //y los datos previos para que estos no se pierdan
       Promise.all([
-        product,
-        allCategories,
-        allEditorials,
-        allDetails,
-        allSizes,
-        allStates,
+        product,allCategories,allEditorials,allDetails,allSizes,allStates,
       ]).then(
-        ([
-          product,
-          allCategories,
-          allEditorials,
-          allDetails,
-          allSizes,
-          allStates,
-        ]) => {
+        ([product,allCategories,allEditorials,allDetails,allSizes,allStates]) => {
           res.render("products/editarProducto", {
-            product,
-            allCategories,
-            allEditorials,
-            allDetails,
-            allSizes,
-            allStates,
+            product,allCategories,allEditorials,allDetails,allSizes,allStates,
             errors: resultValidation.mapped(),
             oldData: req.body,
           });
