@@ -262,7 +262,9 @@ section.top-header {
   text-decoration:none;
   border-bottom: 1px solid #d6d6d6;
 }
-
+.perfilOpciones a:hover{
+  border-bottom: 1px solid #2980b9;
+}
 .session-out {
   text-decoration: none;
   color: #170312;
@@ -1184,6 +1186,9 @@ section.copyright p {
   font-weight: 600;
   letter-spacing: 1px;
 }
+.form-edit p{
+  text-align: left;
+}
 button {
   /* width: 50%; */
   height: auto;
@@ -1604,7 +1609,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .formAdd select {
   width: 100%;
   padding: 15px;
-  border: 1px solid #674baf;
+  border: 1px solid #2980b9;
   border-radius: 5px;
 }
 .formAdd textarea {
@@ -1614,9 +1619,9 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 5px;
 }
 .formAdd textarea:hover {
-  border: 1px solid #674baf;
+  border: 1px solid #2980b9;
 }
-
+/* 
 .formAdd .contenedor_botones {
   margin: 40px 0px;
   width: 100%;
@@ -1642,12 +1647,26 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: white;
   color: black;
   border: 2px solid #674baf;
-}
+} */
 
 .formAdd input:hover {
-  border: 2px solid #674baf;
+  border: 2px solid #2980b9;
 }
 
+.formEditUser input[type="email"]{
+  padding: 10px;
+  border: none;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+}
+
+.formEditUser input[type="file"]{
+  padding: 0px;
+}
+.formEditUser input[type="email"]:hover{
+  border: 2px solid #2980b9;
+}
 .botones-agregar {
   margin: 3%;
   text-align: center;
@@ -1666,22 +1685,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .botones-agregar input[type="submit"]:hover {
   background-color: #349add;
 }
-/*
-    .botones-agregar a{
-        padding: 7px; */
-/* background-color: rgb(55, 148, 95); */
-/* color:white;
-        border: none;
-        border-radius: 5px;       
-        font-size: 1em;
-        text-decoration: none;
-    }
 
-    
 
-    .botones-agregar a:hover{
-        background-color: rgb(53, 189, 112);
-    } */
 /* Fin de los estilos de agregarProducto */
 
 @media (min-width: 760px) {
