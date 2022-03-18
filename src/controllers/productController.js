@@ -98,6 +98,11 @@ const productController = {
   },
 
   store: (req, res) => {
+    let allEditorials = db.Editorial.findAll();
+    let allCategories = db.Category.findAll();
+    let allDetails = db.Detail.findAll();
+    let allSizes = db.Size.findAll();
+    let allStates = db.State.findAll();
     const resultValidation = validationResult(req);
     if (resultValidation.isEmpty()) {
       db.Product.create({
