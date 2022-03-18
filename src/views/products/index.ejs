@@ -5,22 +5,19 @@
         <!--ENCABEZADO-->
         <%- include('../partials/header') %>
 
-        <!--SLIDER-->
-        <div class="slider">
-            <ul>
-                <li>
-                    <img src="/images/banner1.jpg">
-                </li>
-                <li>
-                    <img src="/images/banner2.jpg">
-                </li>
-                <li>
-                    <img src="/images/banner3.jpg">
-                </li>
-                <li>
-                    <img src="/images/banner4.jpg">
-                </li>
-            </ul>
+        <!--CAROUSEL-->
+        <div class="carousel-container">
+            <div class="wrapper">
+                <div class="carousel">
+                    <div class="inner">
+                        <div class="slide active"></div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                    <div class="arrow arrow-left"></div>
+                    <div class="arrow arrow-right"></div>
+                </div>
+            </div>
         </div>
 
         <!--SECCION DE TARJETAS-INFO PARA COMPRAR-->
@@ -64,6 +61,7 @@
         </div>
         <!--PIE DE PAGINA-->
         <%- include('../partials/footer') %>
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/js/carousel.js"></script>
     </body>
 </html>
