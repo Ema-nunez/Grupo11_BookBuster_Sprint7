@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('../partials/head') %>
+<%- include('../partials/head',{tittle:"Inicio"}) %>
     <body>
         <!--ENCABEZADO-->
         <%- include('../partials/header') %>
 
-        <!--SLIDER-->
-        <div class="slider">
-            <ul>
-                <li>
-                    <img src="/images/banner1.jpg">
-                </li>
-                <li>
-                    <img src="/images/banner2.jpg">
-                </li>
-                <li>
-                    <img src="/images/banner3.jpg">
-                </li>
-                <li>
-                    <img src="/images/banner4.jpg">
-                </li>
-            </ul>
+        <!--CAROUSEL-->
+        <div class="carousel-container">
+            <div class="wrapper">
+                <div class="carousel">
+                    <div class="inner">
+                        <div class="slide active"></div>
+                        <div class="slide"></div>
+                        <div class="slide"></div>
+                    </div>
+                    <div class="arrow arrow-left"></div>
+                    <div class="arrow arrow-right"></div>
+                </div>
+            </div>
         </div>
 
         <!--SECCION DE TARJETAS-INFO PARA COMPRAR-->
@@ -48,8 +45,23 @@
             </section>    
         </main>
 
+        <!--Seccion de Marcas-->
+        <div class="contenedor_marcas">
+            <h1 id="h1_marca">Marcas</h1>
+            <div class="row_marcas">
+                <div class="col_marcas">
+                    <img src="/images/DC_logo.png" alt="">
+                    <img src="/images/Marvel_logo.png" alt="">
+                    <img src="/images/IDW_logo.jpg" alt="">
+                    <img src="/images/Norma_Editorial.svg" alt="">
+                    <img src="/images/Dark_Horse_Comics_logo.png" alt="">
+                    <img src="/images/utopia_editorial_logo.jpg" alt="">
+                </div>
+            </div>
+        </div>
         <!--PIE DE PAGINA-->
         <%- include('../partials/footer') %>
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/js/carousel.js"></script>
     </body>
 </html>

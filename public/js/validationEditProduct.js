@@ -28,7 +28,7 @@ window.addEventListener('load',function(){
     writeMsg = (...arrToWrite)=>{
         arrToWrite.forEach(elementWrite=>{
             document.getElementById(elementWrite.id).innerText = elementWrite.msg;
-            document.getElementById(elementWrite.id).classList.add('mensajesError')
+            document.getElementById(elementWrite.id).style.color = "red";
         })
     }
 
