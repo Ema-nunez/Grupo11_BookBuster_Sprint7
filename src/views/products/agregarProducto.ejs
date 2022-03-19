@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <%- include('../partials/head',{tittle:"Crear producto"})%>
+=======
+  <%- include('../partials/head',{tittle:"Agregar Producto"}) %>
+>>>>>>> a6be46ecbeb9d96abe79671f20bd3de5cf1481dd
   <body>
     <%- include('../partials/header') %>
 
@@ -72,15 +76,19 @@
           <% }) %>
         </select>
         <p>Portada</p>
+<<<<<<< HEAD
         <input type="file" name="portada" accept=".png, .jpeg, .jpg" />
         <div id="image-error">
           <% if (locals.errors && errors.image) { %>
           <p class="mensajesError"><%= errors.image.msg%></p>
           <% } %>
         </div>
+=======
+        <input type="file" name="portada" accept=".png, .jpeg, .jpg, .gif" />
+>>>>>>> a6be46ecbeb9d96abe79671f20bd3de5cf1481dd
 
-        <div class="contenedor_botones">
-          <button class="boton">AGREGAR</button>
+        <div class="botones-agregar">
+          <input type="submit" value="Agregar">
         </div>
       </form>
     </main>
