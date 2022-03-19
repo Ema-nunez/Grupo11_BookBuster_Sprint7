@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head') %>
+  <%- include('../partials/head',{tittle:"Agregar Producto"}) %>
   <body>
     <%- include('../partials/header') %>
 
@@ -67,10 +67,10 @@
           <% }) %>
         </select>
         <p>Portada</p>
-        <input type="file" name="portada" accept=".png, .jpeg, .jpg" />
+        <input type="file" name="portada" accept=".png, .jpeg, .jpg, .gif" />
 
-        <div class="contenedor_botones">
-          <button class="boton">AGREGAR</button>
+        <div class="botones-agregar">
+          <input type="submit" value="Agregar">
         </div>
       </form>
     </main>
