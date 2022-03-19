@@ -6,7 +6,7 @@ const validation = [
     .withMessage("El nombre no tiene que estar vacio")
     .bail()
     .isLength({ min: 5 })
-    .withMessage("La longitud del nombre del producto es menor a la requerida"),
+    .withMessage("La longitud del nombre del producto es menor a 5 caracteres"),
   body("descripcion")
     .isLength({ min: 20 })
     .withMessage("La longitud de la descripcion es menor a la requerida"),

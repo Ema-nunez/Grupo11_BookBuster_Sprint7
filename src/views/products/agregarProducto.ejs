@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head') %>
+  <%- include('../partials/head',{tittle:"Crear producto"})%>
   <body>
     <%- include('../partials/header') %>
 
@@ -31,6 +31,11 @@
         <input type="number" name="precio" placeholder="$000000" />
         <p>Descripcion</p>
         <textarea name="descripcion" id="" cols="30" rows="5"></textarea>
+        <div id="description-error">
+          <% if (locals.errors && errors.descripcion) { %>
+          <p class="mensajesError"><%= errors.descripcion.msg %></p>
+          <% } %>
+        </div>
 
         <p>Categoria</p>
         <select name="categoria">
@@ -68,6 +73,11 @@
         </select>
         <p>Portada</p>
         <input type="file" name="portada" accept=".png, .jpeg, .jpg" />
+        <div id="image-error">
+          <% if (locals.errors && errors.image) { %>
+          <p class="mensajesError"><%= errors.image.msg%></p>
+          <% } %>
+        </div>
 
         <div class="contenedor_botones">
           <button class="boton">AGREGAR</button>
