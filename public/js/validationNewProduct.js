@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-  const form = document.querySelector("#form-productEdit");
+  const form = document.querySelector("#form-productNew");
   const name = document.querySelector("#nameEP");
   const description = document.querySelector("#descriptionEP");
   const image = document.querySelector("#imageEP");
