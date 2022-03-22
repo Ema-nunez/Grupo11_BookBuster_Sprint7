@@ -58,6 +58,7 @@ const userController = {
   register: (req, res) => {
     return res.render("users/register");
   },
+
   processRegister: (req, res) => {
     const resultValidation = validationResult(req);
 
@@ -67,18 +68,36 @@ const userController = {
         oldData: req.body,
       });
     }
-    db.User.create({
-      first_name: req.body.name,
-      last_name: req.body.lastName,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      roles_id: 2,
+    db.User.findOne({
+      where : {
+        email : req.body.email
+      }
+    }).then(userPrevius =>{
+      if(userPrevius){
+        return res.render("users/register", {
+          errors: {
+            email: {
+              msg: "Este correo ya esta registrado",
+            },
+          },
+          oldData: req.body,
+        });
+      }else{
+        db.User.create({
+          first_name: req.body.name,
+          last_name: req.body.lastName,
+          email: req.body.email,
+          password: bcrypt.hashSync(req.body.password, 10),
+          roles_id: 2,
+          avatar: req.file.filename,
+        }).then(() => {
+            console.log("creado correctamente");
+            res.redirect("/");
+          });
+      }
+    })
 
-      avatar: req.file.filename,
-    }).then(() => {
-      console.log("creado correctamente");
-      res.redirect("/");
-    });
+    
   },
   userProfile: (req, res) => {
     return res.render("users/profile");

@@ -2,9 +2,9 @@ const { body } = require("express-validator")
 const path = require("path")
 const validacion = [
     body('name').notEmpty().withMessage("Usamos tu nombre para identificar tus pedidos.").bail()
-    .isLength({min: 4}).withMessage('Debes escribir un nombre de usuario con más de 4 caracteres'),
+    .isLength({min: 2}).withMessage('Debes escribir un nombre de usuario con más de 4 caracteres'),
 	body('lastName').notEmpty().withMessage("Usamos tu Apellido para identificarte mas rapido.").bail()
-    .isLength({min: 4}).withMessage('Debes escribir un nombre de usuario con más de 2 caracteres'),
+    .isLength({min: 2}).withMessage('Debes escribir un nombre de usuario con más de 2 caracteres'),
     body('email').notEmpty().withMessage("Tienes que escribir tu correo."),
     body('password').notEmpty().withMessage('Debes escribir una contraseña con más de 8 caracteres').bail()
 	.isLength({min: 8}),
