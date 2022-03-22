@@ -80,7 +80,6 @@ const userController = {
               msg: "Este correo ya esta registrado",
             },
           },
-          oldData: req.body,
         });
       }else{
         db.User.create({
